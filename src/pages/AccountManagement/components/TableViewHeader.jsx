@@ -1,5 +1,4 @@
-import { Button } from "antd";
-import { PiFunnel } from "react-icons/pi";
+
 import { useState } from "react";
 import PropTypes from "prop-types";
 import Modal from "../../../components/ui/Modal";
@@ -9,9 +8,8 @@ import FilterDropdown from "../../../components/ui/FilterDropdown";
 import IconDropdown from "../../../components/ui/IconDropdown";
 import DropdownMenu from "../../../components/ui/DropdownMenu";
 
-const Header = ({ toggleSidebar }) => {
+const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isFilterActive, setIsFilterActive] = useState(false); // State for filter button
 
   const accountOptions = [
     "All Accounts",
@@ -47,27 +45,15 @@ const Header = ({ toggleSidebar }) => {
     setIsModalOpen(false);
   };
 
-  const handleFilterToggle = () => {
-    setIsFilterActive(!isFilterActive); // Toggle filter button state
-    toggleSidebar(); // Call the toggleSidebar function
-  };
+
 
   return (
     <>
       <header className="fixed top-16 left-20 right-0 z-10">
         <div className="flex justify-between items-center px-6 py-3 border-b border-gray-300 bg-white">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 -ml-6">
             <div>
-              <Button
-                className={`py-3 px-2 ${
-                  isFilterActive
-                    ? "bg-gray-100 text-blue-400 shadow-inner-lg"
-                    : ""
-                }`}
-                onClick={handleFilterToggle} // Toggle sidebar visibility
-              >
-                <PiFunnel size={20} />
-              </Button>
+              
             </div>
             <div>
               <FilterDropdown
@@ -98,13 +84,16 @@ const Header = ({ toggleSidebar }) => {
                   </button>
 
                   {/* Modal */}
+                  <div >
                   <Modal
+                    className="container"
                     isOpen={isModalOpen}
                     closeModal={closeModal}
                     title="Create Account"
                   >
                     <AccountsForm closeModal={closeModal} />
                   </Modal>
+                  </div>
                 </div>
 
                 <IconDropdown options={arrowOptions} />
