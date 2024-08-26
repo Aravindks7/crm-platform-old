@@ -60,8 +60,8 @@ const Header = ({ toggleSidebar }) => {
 
   return (
     <>
-      <header className="fixed top-16 left-20 right-0 z-10">
-        <div className="flex justify-between items-center px-6 py-3 border-b border-gray-300 bg-white">
+      <header className="">
+        <div className="fixed top-16 left-20 right-0 z-10 flex justify-between items-center px-6 py-3 border-b border-gray-300 bg-white">
           <div className="flex items-center gap-3">
             <div>
               <Button
@@ -121,7 +121,7 @@ const Header = ({ toggleSidebar }) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-between py-2 pl-8">
+        <div className="flex items-center justify-between py-3 pl-8 -mt-12">
           <CustomSelect options={stageViewOptions} />
           <div className="flex items-center gap-4 pr-8">
             <div>Sort by</div>

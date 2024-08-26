@@ -1,3 +1,4 @@
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Accounts from "./pages/AccountManagement/Accounts";
 import Leads from "./pages/LeadManagement/Leads";
 import Contacts from "./pages/ContactManagement/Contacts";
@@ -15,6 +16,7 @@ function App() {
           <Sidebar />
           <div className="flex-1 ">
             <Routes>
+              <Route path="/*" element={<Dashboard />} />
               <Route path="/accounts/*" element={<Accounts />} />
               <Route path="/leads/*" element={<Leads />} />
               <Route path="/contacts/*" element={<Contacts />} />
